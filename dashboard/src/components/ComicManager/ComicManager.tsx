@@ -7,19 +7,18 @@ const ComicManager = () => {
   const [comic, setComic] = useState<IComic>({} as IComic)
   const [comicNumber, setComicNumber] = useState<{ maxComicNumber?: number, currentComicNumber?: number }>({})
 
-  const comicFetch = useCallback((wantComicNumber?: number) => {
+  const comicFetch = (wantComicNumber?: number) => {
     getComic(wantComicNumber).then(({ data }) => {
       if (data.Success) {
         setComic(data.Response)
-        if (comicNumber?.maxComicNumber) {
+        if (!comicNumber?.maxComicNumber) {
           setComicNumber({ currentComicNumber: data.Response.num, maxComicNumber: data.Response.num })
         } else {
           setComicNumber((currentComic) => ({ ...currentComic, currentComicNumber: data.Response.num }))
         }
       }
     })
-  }, [])
-
+  }
   useEffect(() => {
     comicFetch()
   }, [])

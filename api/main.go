@@ -28,8 +28,8 @@ func main() {
 			"http://localhost:5173",
 		},
 	}))
-
 	e.GET("/comic/get", comicController.GetComic)
+	e.GET("/comic/get/:id", comicController.GetComic)
 
 	address := fmt.Sprintf(":%d", conf.HttpServer.Port)
 	e.Logger.Fatal(e.Start(address))

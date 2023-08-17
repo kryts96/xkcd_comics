@@ -23,8 +23,14 @@ func NewComicService(c http.Client) *comicService {
 
 func (cs *comicService) GetComic(c echo.Context) map[string]interface{} {
 	var result map[string]interface{}
-
-	req, err := http.NewRequest("GET", config.Config.Xkcd.Xkcdurl+"/info.0.json", nil)
+	comicId := c.Param("id")
+	queryUrl := ""
+	if comicId != "" {
+		queryUrl = config.Config.Xkcd.Xkcdurl + "/" + comicId + "/info.0.json"
+	} else {
+		queryUrl = config.Config.Xkcd.Xkcdurl + "/info.0.json"
+	}
+	req, err := http.NewRequest("GET", queryUrl, nil)
 	if err != nil {
 		result["Error"] = err
 		return result
