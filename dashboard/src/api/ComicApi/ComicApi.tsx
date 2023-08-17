@@ -7,7 +7,7 @@ interface IComicResponse<T> {
     Response: T
 }
 
-export const getComic = async (): Promise<{ data: IComicResponse<IComic> }> => {
-    const response = await axios.get(`${config.API_URL}/comic/get`);
+export const getComic = async (comicNumber?: number): Promise<{ data: IComicResponse<IComic> }> => {
+    const response = await axios.get(`${config.API_URL}/comic/get` + (comicNumber ? `/${comicNumber}` : ""));
     return response
 }
