@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { getComic } from '../../api/ComicApi/ComicApi'
 import { IComic } from '../../api/ComicApi/ComicType'
 import Comic from './Comic/Comic'

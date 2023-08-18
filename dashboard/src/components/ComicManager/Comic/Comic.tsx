@@ -18,7 +18,7 @@ const Comic: React.FC<ComicProps> = ({ comic, hasNext, getAdjComics }) => {
             <div>{title}</div>
             <div className={styles.comicContainerDiv}>
                 <div className={styles.chevronStyle} onClick={() => getAdjComics(false)}>{`<`}</div>
-                <img src={img} alt={alt} />
+                <div><img src={img} alt={alt} /></div>
                 <div className={hasNext ? styles.chevronStyle : styles.disabledChevronStyle} onClick={() => getAdjComics(true)}>{`>`}</div>
             </div>
             <div>{day} {MonthUtils[month]} {year}</div>
