@@ -1,0 +1,31 @@
+div .comicContainerDiv {
+    display: grid;
+    grid-template-columns: 50px 800px 50px;
+    column-gap: 50px;
+    align-items: center;
+    height:600px
+}
+
+div .chevronStyle {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:hover {
+        border-radius: 6px;
+        background-color: #333333;
+        user-select: none;
+        cursor: default;
+    }
+}
+
+div .disabledChevronStyle {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.5;
+    user-select: none;
+    pointer-events: none;
+}

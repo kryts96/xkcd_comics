@@ -1,0 +1,5 @@
+httpserver:
+  port: 1234
+
+xkcd:
+  xkcdurl: https://xkcd.com

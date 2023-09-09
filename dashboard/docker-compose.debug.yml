@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  xkcdcomics:
+    image: xkcdcomics
+    build:
+      context: .
+      dockerfile: ./Dockerfile
