@@ -1,0 +1,12 @@
+version: '3.4'
+
+services:
+  xkcdcomics:
+    image: xkcdcomics_dashboard
+    build: ./
+    ports:
+      - "4173:4173"
+    networks:
+      - xkcdcomics_network
+networks:
+  xkcdcomics_network:
